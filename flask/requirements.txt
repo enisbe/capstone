@@ -1,0 +1,4 @@
+pandas 
+sklearn=0.21.3
+flask
+requests
