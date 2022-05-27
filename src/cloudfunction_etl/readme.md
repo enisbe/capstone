@@ -1,12 +1,16 @@
 # Set up
 
-To set up the etl must enable the following API in google cloud:
+There are two files missing from this directory that must be added. 
 
-* eable Cloud function API
-* enable Cloud Build API
-* enable cloud scheduler API
+service_account.json - is the service account to allow the project write to the storage in the cloud regardless where it run from
+secrets.py - has infomration on API_KEY, PROJECT_ID etc
 
-To be able to run this locally you will need to create service account in your project that you deploy this to and downlaod service account key json file. 
+
+### service_account.json
+
+To be able to run this locally you will need to create service account in your project that you will deploy the project to and download the service account key json file. 
+
+### secrets.py
 
 Must also filled secrets.py file with the credentials include:
 * dir_path =  MAIN_PATH
@@ -14,6 +18,14 @@ Must also filled secrets.py file with the credentials include:
 * service_account_file = NAME_OF_SERVICE_ACCOUNT
 * project_id = PROJECT_ID 
 
+To set up the etl must enable the following API in google cloud:
+
+* eable Cloud function API
+* enable Cloud Build API
+* enable cloud scheduler API
+
+
+### gcloud
 
 This function will be deployed as a cloud function. It will be triggered via pub/sub topic. Cloud Scheduler will deploy a message to pub/sub topic daily which will trigger the function to get the daily etl started.
 
