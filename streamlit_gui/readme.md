@@ -19,7 +19,7 @@ docker run --rm --name recessiontest -p 8901:${MYPORT} -e PORT=${MYPORT} recessi
 
 #### Deploy to google cloud container registry
 
-**Note you must have gcloud SDK installed locally bofore executing next set of commands**
+**Note you must have gcloud SDK installed locally before executing the next set of commands**
  
 ``` bash
 docker tag recession_model:v1.0 gcr.io/[project_id]/recession_model:v1.0    
@@ -44,4 +44,4 @@ Must also filled secrets.py file with the credentials include:
 * dir_path =  MAIN_PATH
 * api_key = FRED_API_KEY
 * service_account_file = NAME_OF_SERVICE_ACCOUNT
-* project_id = PROJECT_ID 
+* project_id = PROJECT_ID
