@@ -29,7 +29,7 @@ The application was designed and developed using the microservices model. It con
  
 **Design**
 
-<img src="./static/images/design.png" width="600" height="300" align="middle" alt="Application Design"> 
+<img src="./static/images/design.png" width="400" height="300" align="middle" alt="Application Design"> 
 
 ## Deployment
 
