@@ -25,14 +25,17 @@ To set up the etl must enable the following API in google cloud:
 * enable cloud scheduler API
 
 
-### gcloud
+### cloud scheduler CLI
 
-This function will be deployed as a cloud function. It will be triggered via pub/sub topic. Cloud Scheduler will deploy a message to pub/sub topic daily which will trigger the function to get the daily etl started.
+This function will be deployed as a cloud function. It will be triggered via pub/sub topic. To trigger the function Cloud Scheduler will send a  message to pub/sub topic daily which will trigger the function to get the daily etl started. 
 
+Set up of cloud scheduler:
+
+```
 gcloud config set account [email]
 gcloud config set project [project_id] 
 
 
 gcloud functions deploy getdatafunction  --entry-point main --runtime python37 --trigger-resource etl-topic --trigger-event google.pubsub.topic.publish --timeout 540s 
 gcloud scheduler jobs create pubsub run_fred_etl --schedule "1 0 * * 1-5 (America/Detroit)" --time-zone "America/New_York"   --topic etl-topic --message-body "Not relevant here"
- 
+``` 
